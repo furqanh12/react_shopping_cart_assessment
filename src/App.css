@@ -1,0 +1,60 @@
+
+body {
+  font-family: "Arial, sans-serif";
+  max-width: 800px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  
+}
+
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.filter-label {
+  margin-right: 10px;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+}
+
+.cart-container {
+  margin-top: 20px;
+}
+
+.cart-title {
+  font-size: 1.5em;
+}
+
+.cart-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.cart-buttons {
+  margin-top: 10px;
+}
+
+.cart-total {
+  text-align: right;
+}
