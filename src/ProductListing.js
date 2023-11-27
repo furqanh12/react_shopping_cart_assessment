@@ -17,7 +17,7 @@ const ProductListing = ({ addToCart, colorFilter, cart }) => {
       })
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching products:", error))
-      .finally(() => setLoading(false)); // Set loading to false once products are loaded
+      .finally(() => setLoading(false));
   }, []);
 
   const filteredProducts = colorFilter

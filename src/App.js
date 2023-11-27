@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from "react";
 import ProductListing from "./ProductListing";
 import ShoppingCart from "./ShoppingCart";
@@ -30,18 +31,20 @@ const App = () => {
   };
 
   const handleQtyChange = (productId, increment) => {
-    const updatedCart = [...cart];
-    const existingItem = updatedCart.find((item) => item.id === productId);
-
-    if (existingItem) {
-      existingItem.quantity += increment ? 1 : -1;
-
-      if (existingItem.quantity <= 0) {
-        handleRemoveFromCart(productId);
-      }
-
-      setCart(updatedCart);
-    }
+    setCart((prevCart) => {
+      return prevCart
+        .map((item) => {
+          if (item.id === productId) {
+            // Update the quantity first
+            return {
+              ...item,
+              quantity: increment ? item.quantity + 1 : item.quantity - 1,
+            };
+          }
+          return item;
+        })
+        .filter((item) => item.quantity > 0); // Remove items with quantity <= 0
+    });
   };
 
   const calculateTotal = () => {
@@ -74,7 +77,7 @@ const App = () => {
         colorFilter={colorFilter}
         cart={cart}
       />
-
+      <div className="divider"></div>
       <ShoppingCart
         cart={cart}
         handleQtyChange={handleQtyChange}
